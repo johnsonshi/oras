@@ -63,6 +63,9 @@ func (t *Transport) RoundTrip(req *http.Request) (resp *http.Response, err error
 	e.Debugf("--> Request #%d\n> Request URL: %q\n> Request method: %q\n> Request headers:\n%s",
 		id, req.URL, req.Method, logHeader(req.Header))
 
+	// log separator for readability
+	e.Debugf("---")
+
 	// log the response
 	resp, err = t.RoundTripper.RoundTrip(req)
 	if err != nil {
